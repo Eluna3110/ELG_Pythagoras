@@ -52,8 +52,8 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output url="file://$MODULE_DIR$/../../../pitagoras/build/intermediates/javac/debug/classes" />
-    <output-test url="file://$MODULE_DIR$/../../../pitagoras/build/intermediates/javac/debugUnitTest/classes" />
+    <output url="file://$MODULE_DIR$/../../../geometric/build/intermediates/javac/debug/classes" />
+    <output-test url="file://$MODULE_DIR$/../../../geometric/build/intermediates/javac/debugUnitTest/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../geometric">
       <sourceFolder url="file://$MODULE_DIR$/../../../geometric/src/main/java" isTestSource="false" />
