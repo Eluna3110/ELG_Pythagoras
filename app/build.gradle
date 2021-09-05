@@ -53,5 +53,6 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1'
     //implementation project(path: ':pitagoras')
-    implementation 'com.github.Eluna3110:ELG_Pythagoras:6e4f934a13'
+    implementation "com.airbnb.android:lottie:3.4.0"
+    implementation 'com.github.Eluna3110:ELG_Pythagoras:4a33f4657f'
 }
