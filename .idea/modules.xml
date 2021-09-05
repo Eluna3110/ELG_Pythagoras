@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/pitagoras.iml" filepath="$PROJECT_DIR$/.idea/modules/pitagoras.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/pitagoras.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/pitagoras.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/pitagoras/pitagoras.app.pitagoras.iml" filepath="$PROJECT_DIR$/.idea/modules/app/pitagoras/pitagoras.app.pitagoras.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pitagoras/pitagoras.pitagoras.iml" filepath="$PROJECT_DIR$/.idea/modules/pitagoras/pitagoras.pitagoras.iml" />
     </modules>
   </component>
 </project>

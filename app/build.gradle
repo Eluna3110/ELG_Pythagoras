@@ -52,5 +52,6 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:1.2.5"
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1'
-    implementation project(path: ':app:pitagoras')
+    //implementation project(path: ':app:pitagoras')
+    implementation 'com.github.Eluna3110:ELG_Pythagoras:6e4f934a13'
 }
