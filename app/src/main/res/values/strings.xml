@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Pitágoras</string>
+    <string name="title">Figuras Geométricas</string>
+    <string name="calculo">Calculando el área</string>
+    <string name="calculo_bttn">Calcular</string>
+    <string name="resultado">Tu resultado es: %s</string>
+    <string name="lado_cuadrado">Lado:</string>
+    <string name="base">Base:</string>
+    <string name="altura">Altura:</string>
+    <string name="radio">Radio:</string>
+    <string name="apotema">Apotema:</string>
+    <string name="diagonal_mayor">Diagonal mayor:</string>
+    <string name="diagonal_menor">Diagonal menor:</string>
+    <string name="base_mayor">Base menor:</string>
+    <string name="base_menor">Base mayor:</string>
+</resources>

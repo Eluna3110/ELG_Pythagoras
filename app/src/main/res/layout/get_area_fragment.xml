@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="viewModel"
+            type="com.example.pitagoras.mvvm.viewmodel.GeometricFiguresViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/calculo"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            style="@style/CardView.Dark"
+            android:textSize="@dimen/sp_24"
+            android:layout_marginTop="@dimen/margin_size_xxlarge"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/calculate_area"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin_size_xxxlarge"
+            app:layout_constraintHeight_percent="0.6"
+            android:layout_marginStart="@dimen/margin_size_medium"
+            android:layout_marginEnd="@dimen/margin_size_medium"
+            app:layout_constraintTop_toBottomOf="@id/tv_title">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cly_calcula_cuadrado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_lado_cuadrado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lado_cuadrado"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/CardView.Dark"
+                    android:textSize="@dimen/sp_18"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/txtSideSquare"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/margin_size_small"
+                    android:afterTextChanged="@{() -> viewModel.afterTextSideSquare(txtSideSquare)}"
+                    android:text="@{viewModel.sideSquare}"
+                    android:background="@drawable/bg_input"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    app:layout_constraintTop_toBottomOf="@id/tv_lado_cuadrado" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cly_calcula_traingulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_base_traingulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/base"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/CardView.Dark"
+                    android:textSize="@dimen/sp_18"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/txtBaseTriangulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/margin_size_small"
+                    android:afterTextChanged="@{() -> viewModel.afterTextBaseTriangle(txtBaseTriangulo)}"
+                    android:text="@{viewModel.baseTriangle}"
+                    android:background="@drawable/bg_input"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    app:layout_constraintTop_toBottomOf="@id/tv_base_traingulo" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_altura_traingulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/altura"
+                    app:layout_constraintTop_toBottomOf="@id/txtBaseTriangulo"
+                    style="@style/CardView.Dark"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    android:textSize="@dimen/sp_18"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/heightTriangle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/margin_size_small"
+                    android:text="@{viewModel.heightTriangle}"
+                    android:afterTextChanged="@{() -> viewModel.afterTextHeightTriangle(heightTriangle)}"
+                    android:background="@drawable/bg_input"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    app:layout_constraintTop_toBottomOf="@id/tv_altura_traingulo" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cly_calcula_rectangulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_base_rectangulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/base"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/CardView.Dark"
+                    android:textSize="@dimen/sp_18"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/baseRectangle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/margin_size_small"
+                    android:text="@{viewModel.baseRectangle}"
+                    android:afterTextChanged="@{() -> viewModel.afterTextBaseRectangle(baseRectangle)}"
+                    android:background="@drawable/bg_input"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    app:layout_constraintTop_toBottomOf="@id/tv_base_rectangulo" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_altura_rectangulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/altura"
+                    app:layout_constraintTop_toBottomOf="@id/baseRectangle"
+                    style="@style/CardView.Dark"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    android:textSize="@dimen/sp_18"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/heightRectangle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/margin_size_small"
+                    android:text="@{viewModel.heightRectangle}"
+                    android:afterTextChanged="@{() -> viewModel.afterTextHeightRectangle(heightRectangle)}"
+                    android:background="@drawable/bg_input"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    app:layout_constraintTop_toBottomOf="@id/tv_altura_rectangulo" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cly_calcula_circle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_lado_circle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/CardView.Dark"
+                    android:textSize="@dimen/sp_18"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/radioCircle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/margin_size_small"
+                    android:text="@{viewModel.radioCircle}"
+                    android:afterTextChanged="@{() -> viewModel.afterTextRadioCircle(radioCircle)}"
+                    android:background="@drawable/bg_input"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    app:layout_constraintTop_toBottomOf="@id/tv_lado_circle" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cly_calcula_hexagon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_base_hexagon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lado_cuadrado"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/CardView.Dark"
+                    android:textSize="@dimen/sp_18"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/sideHexagon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/margin_size_small"
+                    android:text="@{viewModel.sideHexagon}"
+                    android:afterTextChanged="@{() -> viewModel.afterTextSideHexagon(sideHexagon)}"
+                    android:background="@drawable/bg_input"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    app:layout_constraintTop_toBottomOf="@id/tv_base_hexagon" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_altura_hexagon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/apotema"
+                    app:layout_constraintTop_toBottomOf="@id/sideHexagon"
+                    style="@style/CardView.Dark"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    android:textSize="@dimen/sp_18"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/aptHexagon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/margin_size_small"
+                    android:text="@{viewModel.aptHexagon}"
+                    android:afterTextChanged="@{() -> viewModel.afterTextAptHexagon(aptHexagon)}"
+                    android:background="@drawable/bg_input"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    app:layout_constraintTop_toBottomOf="@id/tv_altura_hexagon" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cly_calcula_rombo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_base_rombo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/diagonal_mayor"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/CardView.Dark"
+                    android:textSize="@dimen/sp_18"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/diagonalHigher"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/margin_size_small"
+                    android:text="@{viewModel.diagonalHigher}"
+                    android:afterTextChanged="@{() -> viewModel.afterTextDiagonalHigher(diagonalHigher)}"
+                    android:background="@drawable/bg_input"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    app:layout_constraintTop_toBottomOf="@id/tv_base_rombo" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_altura_rombo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/diagonal_menor"
+                    app:layout_constraintTop_toBottomOf="@id/diagonalHigher"
+                    style="@style/CardView.Dark"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    android:textSize="@dimen/sp_18"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/diagonalLess"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/margin_size_small"
+                    android:text="@{viewModel.diagonalLess}"
+                    android:afterTextChanged="@{() -> viewModel.afterTextDiagonalLess(diagonalLess)}"
+                    android:background="@drawable/bg_input"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    app:layout_constraintTop_toBottomOf="@id/tv_altura_rombo" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cly_calcula_paralelograma"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_base_paralelograma"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/base"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/CardView.Dark"
+                    android:textSize="@dimen/sp_18"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/baseParallelogram"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/margin_size_small"
+                    android:text="@{viewModel.baseParallelogram}"
+                    android:afterTextChanged="@{() -> viewModel.afterTextBaseParallelogram(baseParallelogram)}"
+                    android:background="@drawable/bg_input"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    app:layout_constraintTop_toBottomOf="@id/tv_base_paralelograma" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_altura_paralelograma"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/altura"
+                    app:layout_constraintTop_toBottomOf="@id/baseParallelogram"
+                    style="@style/CardView.Dark"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    android:textSize="@dimen/sp_18"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/heightParallelogram"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/margin_size_small"
+                    android:text="@{viewModel.heightParallelogram}"
+                    android:afterTextChanged="@{() -> viewModel.afterTextHeightParallelogram(heightParallelogram)}"
+                    android:background="@drawable/bg_input"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    app:layout_constraintTop_toBottomOf="@id/tv_altura_paralelograma" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cly_calcula_trapecio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_base_trapecio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/base_mayor"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/CardView.Dark"
+                    android:textSize="@dimen/sp_18"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/baseLess"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/margin_size_small"
+                    android:text="@{viewModel.baseLess}"
+                    android:afterTextChanged="@{() -> viewModel.afterTextBaseLess(baseLess)}"
+                    android:background="@drawable/bg_input"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    app:layout_constraintTop_toBottomOf="@id/tv_base_trapecio" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_base_mayor_trapecio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/base_menor"
+                    app:layout_constraintTop_toBottomOf="@id/baseLess"
+                    style="@style/CardView.Dark"
+                    android:textSize="@dimen/sp_18"
+                    android:layout_marginTop="@dimen/margin_size_medium" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/baseHigher"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/margin_size_small"
+                    android:text="@{viewModel.baseHigher}"
+                    android:afterTextChanged="@{() -> viewModel.afterTextBaseHigher(baseHigher)}"
+                    android:background="@drawable/bg_input"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    app:layout_constraintTop_toBottomOf="@id/tv_base_mayor_trapecio" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_altura_trapecio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/altura"
+                    app:layout_constraintTop_toBottomOf="@id/baseHigher"
+                    style="@style/CardView.Dark"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    android:textSize="@dimen/sp_18"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/heightTrapeze"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/margin_size_small"
+                    android:background="@drawable/bg_input"
+                    android:text="@{viewModel.heightTrapeze}"
+                    android:afterTextChanged="@{() -> viewModel.afterTextHeightTrapeze(heightTrapeze)}"
+                    android:layout_marginTop="@dimen/margin_size_medium"
+                    app:layout_constraintTop_toBottomOf="@id/tv_altura_trapecio" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/resultado"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.result}"
+                app:layout_constraintTop_toTopOf="parent"
+                android:gravity="center"
+                style="@style/CardView.Dark"
+                android:textSize="@dimen/sp_18"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_calculate"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_52"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/margin_size_large"
+                android:layout_marginEnd="@dimen/margin_size_large"
+                android:background="@drawable/bg_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="@dimen/dp_40"
+                android:textAllCaps="false"
+                android:onClick="@{onClickListener}"
+                android:text="@string/calculo_bttn"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
